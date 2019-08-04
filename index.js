@@ -4,19 +4,11 @@ const path = require('path')
 const isEqual = require('lodash.isequal');
 const emojiList = require('emojis-list');
 
-const args = process.argv;
-
-const DIR = path.dirname('./');
-const DIR_SRC = path.resolve(DIR, args[2]);
-const DIR_DEST = path.resolve(DIR, args[3]);
-
-const CUT = args[4] === 'cut';
-
 const SPECIAL_SYMBOLS = [0xFE0F, 0x200D];
 
 const emojiUnicodePoints = emojiList.map((code) => [...code].map((point) => point.codePointAt(0)));
 
-const convertFiles = function() {
+const convertFiles = function({DIR_SRC, DIR_DEST, CUT}) {
   return fs.readdir(DIR_SRC, (err, files) => {
     console.time('Converted in')
     files.forEach(file => {
@@ -35,7 +27,7 @@ const convertFiles = function() {
         .filter((codes) => equal(codes.filter((code) => !SPECIAL_SYMBOLS.includes(code))))
 
       if (filtredEmojis.length === 1) {
-        copy(file, filtredEmojis[0])
+        copy({file, pointsEmoji: filtredEmojis[0], DIR_SRC, DIR_DEST, CUT})
       } else {
         console.log(`Not supported in Emoji 12.0 or something went wrong with: ${file}`)
       }
@@ -54,7 +46,7 @@ const convertFiles = function() {
   });
 };
 
-function copy(file, pointsEmoji) {
+function copy({file, pointsEmoji, DIR_SRC, DIR_DEST, CUT}) {
   const [name, ext] = file.split('.');
 
   const emoji = String.fromCodePoint(...pointsEmoji);
@@ -76,4 +68,6 @@ function copy(file, pointsEmoji) {
   return;
 }
 
-convertFiles();
+module.exports = {
+  convertFiles
+}

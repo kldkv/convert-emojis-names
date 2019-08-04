@@ -13,14 +13,26 @@
   },
   "files": [
     "index.js",
+    "cli.js",
     "README.md",
     "LICENSE"
   ],
+  "bin": {
+    "convert-emojis-name": "./cli.js"
+  },
+  "preferGlobal": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/kldkv/convert-emojis-name.git"
   },
-  "keywords": ["emojis", "convert", "joypixels", "joy-pixels", "twemoji", "openmoji"],
+  "keywords": [
+    "emojis",
+    "convert",
+    "joypixels",
+    "joy-pixels",
+    "twemoji",
+    "openmoji"
+  ],
   "author": "Alexander Kladkov",
   "license": "MIT",
   "dependencies": {
