@@ -1,0 +1,30 @@
+{
+  "name": "convert-emojis-name",
+  "version": "1.0.0",
+  "description": "Convert filenames for popular emojis pack from '1f44b-1f3fe.png' to '👋🏾.png'",
+  "main": "index.js",
+  "homepage": "https://github.com/kldkv/convert-emojis-name",
+  "bugs": "https://github.com/kldkv/convert-emojis-name/issues",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kldkv/convert-emojis-name.git"
+  },
+  "keywords": ["emojis", "convert", "joypixels", "joy-pixels", "twemoji", "openmoji"],
+  "author": "Alexander Kladkov",
+  "license": "MIT",
+  "dependencies": {
+    "emojis-list": "^3.0.0",
+    "lodash.isequal": "^4.5.0"
+  }
+}
