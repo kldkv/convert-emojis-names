@@ -1,4 +1,4 @@
-# convert-emojis-name
+# convert-emojis-names
 
 Convert filenames for popular emojis pack from '1f44b-1f3fe.png' to '👋🏾.png'
 
@@ -16,7 +16,7 @@ This package was tested on:
 
 ### usase
 ```
-npx convert-emojis-name input-dir output-dir
+npx convert-emojis-names input-dir output-dir
 ```
 
 ### example
